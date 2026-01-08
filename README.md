@@ -105,57 +105,56 @@ Esta separación permite escalar y evolucionar el modelo sin afectar la API.
   "complain": false
 }
 
-Response
 
+Response
 {
   "forecast": "Va a cancelar",
   "probability": 0.81
 }
 
+```
 La validación de rangos y dominios de datos se realiza tanto en backend como en el pipeline de Data Science para evitar inferencias fuera del dominio del modelo.
 
 
+## Casos de Uso
 
+-Campañas de retención dirigidas
 
-Casos de Uso
+-Priorización de clientes en soporte
 
-Campañas de retención dirigidas
+-Segmentación de clientes por riesgo
 
-Priorización de clientes en soporte
-
-Segmentación de clientes por riesgo
-
-Evaluación del impacto de acciones comerciales
+-Evaluación del impacto de acciones comerciales
 
 
 
 
 
-Demo del Sistema
+## Demo del Sistema
 
 Durante la presentación se demuestra:
 
-Envío de request desde Postman o cliente HTTP
+-Envío de request desde Postman o cliente HTTP
 
-Respuesta con predicción y probabilidad
+-Respuesta con predicción y probabilidad
 
-Integración activa entre Backend y Data Science
-
-
-El objetivo del MVP es validar la viabilidad técnica y de producto de la solución.
+-Integración activa entre Backend y Data Science
 
 
+-El objetivo del MVP es validar la viabilidad técnica y de producto de la solución.
 
 
-Repositorios del Proyecto
+
+
+## Repositorios del Proyecto
 
 El proyecto se organiza en los siguientes repositorios:
 
-churn-insight → documentación general y orquestación
+-churn-insight → documentación general y orquestación
 
-backend → API REST en Java
+-backend → API REST en Java
 
-data-science → notebooks, pipeline y modelo ML
+-data-science → notebooks, pipeline y modelo ML
 
 
 Cada repositorio contiene documentación técnica específica.
@@ -163,19 +162,19 @@ Cada repositorio contiene documentación técnica específica.
 
 
 
-Equipo y Forma de Trabajo
+## Equipo y Forma de Trabajo
 
 El proyecto fue desarrollado de forma colaborativa por integrantes de Data Science y Backend.
 
 Aunque algunos commits fueron centralizados por motivos de integración, el trabajo se realizó mediante:
 
-Reuniones de alineación
+-Reuniones de alineación
 
-Notebooks compartidos
+-Notebooks compartidos
 
-Definición conjunta del contrato
+-Definición conjunta del contrato
 
-Revisión cruzada de decisiones técnicas
+-Revisión cruzada de decisiones técnicas
 
 
 El enfoque fue priorizar un MVP completamente funcional e integrado.
@@ -183,17 +182,17 @@ El enfoque fue priorizar un MVP completamente funcional e integrado.
 
 
 
-Alcance del MVP
+## Alcance del MVP
 
 Este proyecto corresponde a un Producto Mínimo Viable (MVP) desarrollado durante el hackathon.
 
 Por lo tanto:
 
-El dataset es reducido
+-El dataset es reducido
 
-El modelo no está optimizado para producción
+-El modelo no está optimizado para producción
 
-No se incluyen procesos de monitoreo continuo
+-No se incluyen procesos de monitoreo continuo
 
 
 El objetivo principal es validar la integración técnica y el flujo completo de predicción, dejando optimizaciones para iteraciones futuras.
@@ -201,22 +200,22 @@ El objetivo principal es validar la integración técnica y el flujo completo de
 
 
 
-Roadmap
+## Roadmap
 
-Feature engineering adicional
+-Feature engineering adicional
 
-Explicabilidad del modelo (SHAP)
+-Explicabilidad del modelo (SHAP)
 
-Persistencia de predicciones
+-Persistencia de predicciones
 
-Predicción por lotes (batch)
+-Predicción por lotes (batch)
 
-Dashboard de visualización
-
-
+-Dashboard de visualización
 
 
 
-Licencia
+
+
+## Licencia
 
 Proyecto con fines educativos y demostrativos para hackathon.

@@ -1,0 +1,9 @@
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/HackathonONELatam-ChurnInsight/frontend
+[submodule "backend"]
+	path = backend
+	url = https://github.com/HackathonONELatam-ChurnInsight/backend
+[submodule "data-science"]
+	path = data-science
+	url = https://github.com/HackathonONELatam-ChurnInsight/data-science

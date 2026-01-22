@@ -133,6 +133,81 @@ Response
 ```
 La validación de rangos y dominios de datos se realiza tanto en backend como en el pipeline de Data Science para evitar inferencias fuera del dominio del modelo.
 
+
+##  Reglas de Dominio y Validación de Datos
+
+Para garantizar que el modelo genere predicciones confiables y evitar inferencias fuera del dominio de entrenamiento, se establecen reglas de validación tanto en Backend como en el pipeline de Data Science.
+
+###  Validación de Dominio (Backend)
+
+Las siguientes reglas aseguran que los datos de entrada cumplan con rangos y valores esperados:
+
+| Variable            | Dominio esperado                       |
+|---------------------|-----------------------------------------|
+| Geography            | Spain, France, Germany                  |
+| Age                  | 18 – 100                                |
+| CreditScore          | 100 – 1000                              |
+| Balance              | ≥ 0                                    |
+| EstimatedSalary      | ≥ 0                                    |
+| Tenure               | 0 – 20                                 |
+| NumOfProducts        | 1, 2, 3, 4                             |
+| SatisfactionScore    | 1, 2, 3, 4, 5                           |
+| Variables binarias   | true / false                           |
+
+Estas validaciones permiten detectar entradas inválidas antes de ejecutar el modelo y evitar resultados inconsistentes.
+
+
+
+###  Clasificación de Variables (Data Science)
+
+Las variables utilizadas por el modelo fueron analizadas durante el EDA y clasificadas según su impacto en la predicción.
+
+#### 🟢 Core — Alta Importancia  
+Impactan directamente en el resultado del modelo:
+
+- Age  
+- CreditScore  
+- Balance  
+- Tenure  
+- NumOfProducts  
+- IsActiveMember  
+- SatisfactionScore  
+- complain  
+- Geography  
+- Gender  
+
+Estas variables explican la mayor parte de la variabilidad del riesgo de churn.
+
+
+
+#### 🟡 Opcionales — Mejoran performance  
+Aportan señal secundaria y pueden mejorar ligeramente el desempeño:
+
+- EstimatedSalary  
+- HasCrCard  
+
+No son indispensables para generar predicción.
+
+
+
+#### 🔴 Baja relevancia / Descartadas  
+No aportan valor predictivo significativo:
+
+- RowNumber  
+- CustomerId  
+- Surname  
+
+Estas variables fueron excluidas del pipeline para evitar ruido y sobreajuste.
+
+
+
+Esta clasificación permite:
+
+- Alinear el contrato de entrada con las variables realmente utilizadas.
+- Facilitar la integración con otros equipos.
+- Mejorar la trazabilidad y explicabilidad del modelo.
+
+
 ## Pruebas con Postman
 El proyecto incluye una colección de Postman para facilitar la validación de la API.
 

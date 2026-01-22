@@ -40,8 +40,8 @@ ChurnInsight permite:
 
 La respuesta del sistema incluye:
 
-- una clasificación binaria  
-- y una probabilidad asociada, útil para priorización operativa
+- Una clasificación binaria: **"Va a cancelar/ Va a continuar"**
+- Una probabilidad asociada para priorización operativa
 
 
 
@@ -54,7 +54,13 @@ El modelo fue evaluado utilizando métricas de clasificación estándar:
 - Recall  
 - F1-score  
 
-Dado el contexto de negocio, se priorizó el Recall, buscando identificar la mayor cantidad posible de clientes en riesgo de churn, incluso aceptando algunos falsos positivos.
+Dado el contexto de negocio, se priorizó el **Recall**, buscando identificar la mayor cantidad posible de clientes en riesgo de churn, incluso aceptando algunos falsos positivos.
+
+Para el MVP se priorizó un modelo **interpretable (Regresión Logística)**, favoreciendo:
+
+- Explicabilidad
+- Estabilidad
+- Facilidad de integración.
 
 Los resultados detallados del entrenamiento y validación se documentan en el repositorio de Data Science.
 
@@ -65,8 +71,22 @@ Los resultados detallados del entrenamiento y validación se documentan en el re
 El sistema está diseñado con una arquitectura desacoplada entre Backend y Data Science, comunicados mediante API.
 
 ### Flujo de Predicción
+```text
+Cliente / Frontend
+        ↓
+API REST (Spring Boot - Java)
+        ↓
+Microservicio Data Science (FastAPI - Python)
+        ↓
+Pipeline de Preprocesamiento + Modelo ML
+        ↓
+Predicción + Probabilidad
+        ↓
+Respuesta JSON al cliente
+```
 
-Cliente / Frontend │ ▼ API REST (Spring Boot - Java) │ ▼ Microservicio Data Science (FastAPI - Python) │ ▼ Pipeline de Preprocesamiento + Modelo ML │ ▼ Predicción + Probabilidad │ ▼ Respuesta JSON al cliente
+
+Esta arquitectura permite escalar y evolucionar el modelo sin afectar la API.
 
 ### Responsabilidades
 
@@ -78,14 +98,12 @@ Cliente / Frontend │ ▼ API REST (Spring Boot - Java) │ ▼ Microservicio D
 
 **Data Science**
 - Preprocesamiento de variables  
-- Ejecución del modelo de Machine Learning  
-- Retorno de resultados al backend  
-
-Esta separación permite escalar y evolucionar el modelo sin afectar la API.
-
+- Entrenamiento y evalución del modelo
+- Serialización del pipeline   
+- Validación de dominios y consistencia con el contrato.
 
 
-## Contrato de Integración (API)
+## Contrato de Integración (API) - v3(estable)
 
 ### Request (ejemplo)
 
@@ -115,16 +133,30 @@ Response
 ```
 La validación de rangos y dominios de datos se realiza tanto en backend como en el pipeline de Data Science para evitar inferencias fuera del dominio del modelo.
 
+## Pruebas con Postman
+El proyecto incluye una colección de Postman para facilitar la validación de la API.
+
+Ubicación:
+/postman/ChurnInsight.postman_collection.json
+
+Permite:
+- Ejecutar peticiones de prueba al endpoint /predict
+
+- Validar formato de request y response
+
+- Simular distintos escenarios de clientes
+
+
 
 ## Casos de Uso
 
--Campañas de retención dirigidas
+- Campañas de retención dirigidas
 
--Priorización de clientes en soporte
+- Priorización de clientes en soporte
 
--Segmentación de clientes por riesgo
+- Segmentación de clientes por riesgo
 
--Evaluación del impacto de acciones comerciales
+- Evaluación del impacto de acciones comerciales
 
 
 
@@ -134,14 +166,14 @@ La validación de rangos y dominios de datos se realiza tanto en backend como en
 
 Durante la presentación se demuestra:
 
--Envío de request desde Postman o cliente HTTP
+- Envío de request desde Postman
 
--Respuesta con predicción y probabilidad
+- Respuesta con predicción y probabilidad
 
--Integración activa entre Backend y Data Science
+- Integración activa entre Backend y Data Science
 
 
--El objetivo del MVP es validar la viabilidad técnica y de producto de la solución.
+- El objetivo del MVP es validar la viabilidad técnica y de producto de la solución.
 
 
 
@@ -150,11 +182,11 @@ Durante la presentación se demuestra:
 
 El proyecto se organiza en los siguientes repositorios:
 
--churn-insight → documentación general y orquestación
+- churn-insight → documentación general y orquestación
 
--backend → API REST en Java
+- backend → API REST en Java
 
--data-science → notebooks, pipeline y modelo ML
+- data-science → notebooks, pipeline y modelo ML
 
 
 Cada repositorio contiene documentación técnica específica.
@@ -168,31 +200,41 @@ El proyecto fue desarrollado de forma colaborativa por integrantes de Data Scien
 
 Aunque algunos commits fueron centralizados por motivos de integración, el trabajo se realizó mediante:
 
--Reuniones de alineación
+- Reuniones de alineación
 
--Notebooks compartidos
+- Notebooks compartidos
 
--Definición conjunta del contrato
+- Definición conjunta del contrato
 
--Revisión cruzada de decisiones técnicas
+- Revisión cruzada de decisiones técnicas
 
 
 El enfoque fue priorizar un MVP completamente funcional e integrado.
+
+## Integrantes
+Data Science
+- Nicolás Ruiz – LinkedIn
+- Claudia Delgado – LinkedIn
+- Felipe Octavio Rebolledo Robert – LinkedIn
+
+Backend
+- Anghelo Flores – LinkedIn
+- Andrea Cecilia Lopez – LinkedIn
+- Ashley
+- Luis Fernando Jaramillo – .com
+- Enrique Castillo – LinkedIn
+
 
 
 
 
 ## Alcance del MVP
 
-Este proyecto corresponde a un Producto Mínimo Viable (MVP) desarrollado durante el hackathon.
+- Dataset reducido
 
-Por lo tanto:
+- Modelo no está optimizado para producción
 
--El dataset es reducido
-
--El modelo no está optimizado para producción
-
--No se incluyen procesos de monitoreo continuo
+- Sin monitoreo continuo
 
 
 El objetivo principal es validar la integración técnica y el flujo completo de predicción, dejando optimizaciones para iteraciones futuras.
@@ -202,15 +244,15 @@ El objetivo principal es validar la integración técnica y el flujo completo de
 
 ## Roadmap
 
--Feature engineering adicional
+- Feature engineering adicional
 
--Explicabilidad del modelo (SHAP)
+- Explicabilidad del modelo (SHAP)
 
--Persistencia de predicciones
+- Persistencia de predicciones
 
--Predicción por lotes (batch)
+- Predicción por lotes (batch)
 
--Dashboard de visualización
+- Dashboard de visualización
 
 
 

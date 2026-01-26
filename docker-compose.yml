@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  # --- Backend (Java Spring Boot) ---
+  backend-service:
+    build: ../backend  # <--- Sube un nivel y busca la carpeta 'backend'
+    container_name: churninsight-backend
+    ports:
+      - "8080:8080"
+    environment:
+      - MODEL_SERVICE_URL=http://data-science-service:8000
+    depends_on:
+      - data-science-service
+    networks:
+      - churn-network
+
+  # --- Data Science (Python FastAPI) ---
+  data-science-service:
+    build: ../data-science  # <--- Sube un nivel y busca 'data-science'
+    container_name: churninsight-ds
+    expose:
+      - "8000"
+    networks:
+      - churn-network
+
+networks:
+  churn-network:
+    driver: bridge

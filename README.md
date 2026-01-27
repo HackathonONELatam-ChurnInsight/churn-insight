@@ -225,7 +225,7 @@ churn-insight/
 
 **🔗 Ver Repositorio:** [frontend →](https://github.com/HackathonONELatam-ChurnInsight/frontend)
 
-**📖 Documentación Técnica:** [Backend README](https://github.com/HackathonONELatam-ChurnInsight/frontend#readme)
+**📖 Documentación Técnica:** [Frontend README](https://github.com/HackathonONELatam-ChurnInsight/frontend#readme)
 
 
 ### 3️⃣ ⚙️ [Backend API - Java/Spring Boot](https://github.com/HackathonONELatam-ChurnInsight/backend)
@@ -233,7 +233,7 @@ churn-insight/
 **Propósito:** API REST, validación, integración con ML Service
 
 
-**🔗 Ver Repositorio:** [churninsight-backend →](https://github.com/HackathonONELatam-ChurnInsight/backend)
+**🔗 Ver Repositorio:** [backend →](https://github.com/HackathonONELatam-ChurnInsight/backend)
 
 **📖 Documentación Técnica:** [Backend README](https://github.com/HackathonONELatam-ChurnInsight/backend#readme)
 
@@ -814,7 +814,5 @@ Proyecto con fines educativos y demostrativos para hackathon.
 [![Frontend](https://img.shields.io/badge/🔗%20Frontend-Repository-yellow?style=for-the-badge)](https://github.com/HackathonONELatam-ChurnInsight/frontend)
 [![Backend](https://img.shields.io/badge/🔗%20Backend-Repository-blue?style=for-the-badge)](https://github.com/HackathonONELatam-ChurnInsight/backend)
 [![Data Science](https://img.shields.io/badge/🔗%20Data%20Science-Repository-green?style=for-the-badge)](https://github.com/HackathonONELatam-ChurnInsight/data-science)
-
-**[⬆ Volver arriba](#-churninsight---plataforma-de-predicción-de-churn)**
 
 </div>

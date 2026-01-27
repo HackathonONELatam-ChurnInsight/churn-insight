@@ -257,7 +257,7 @@ churn-insight/
 
 ```json
 {
-  "customerId: "CLI-002"
+  "customerId: "CLI-002",
   "geography": "Spain",
   "gender": "Male",
   "age": 42,

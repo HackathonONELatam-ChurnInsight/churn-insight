@@ -583,15 +583,17 @@ Para la configuración para desarrollo ir a la respectiva documentación.
 ---
 
 ## ✅ Pruebas con Postman
-El proyecto incluye una colección de Postman para facilitar la validación de la API.
+El proyecto incluye una colección de Postman y un archivo csv para facilitar la validación de la API.
 
 Ubicación:
 ```
 /postman/ChurnInsight.postman_collection.json
 ```
 
+Uso: Importa `postman/ChurnInsight.postman_collection.json` en Postman y ejecuta las peticiones o úsalas en el Collection Runner.
+
 Permite:
-- Ejecutar peticiones de prueba al endpoint /predict
+- Ejecutar peticiones de prueba al endpoint /predict (/predict/with-explanation y /predict/batch)
 
 - Validar formato de request y response
 

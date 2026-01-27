@@ -403,7 +403,7 @@ Esta clasificación permite:
 ### Opción 1: Docker Compose (⚡ Recomendado)
 
 ```bash
-
+corregir tabla abajo si esta mal
 ```
 
 **🎉 ¡Listo!** Los servicios están corriendo en:
@@ -632,7 +632,7 @@ Permite:
 |------------|-----------|
 | Docker | Contenerización |
 | Docker Compose | Orquestación |
-| Oracle Cloud (OCI) | proveedor Cloud |
+| Oracle Cloud (OCI) | Proveedor Cloud |
 
 ---
 
